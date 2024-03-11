@@ -24,9 +24,12 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">Name</th> 
+                            <th scope="col">Age</th>
+                             <th scope="col">Gender</th>
                             <th scope="col">Disease</th>
-                            <th scope="col">Medicine</th>
+                            <th scope="col">Medicine</th> 
+                            <th scope="col">Alternative Drugs</th>
                             <th scope="col">Appointment</th>
                         </tr>
                     </thead>
@@ -36,13 +39,24 @@
                         {% for d in disease %}
                         <tr>
                             <td>{{ d.id }}</td>
-                            <td>{{ d.patient.username }}</td>
+                            <td>{{ d.patient.username }}</td> 
+                            <td>{{ d.patient.profile.get_age }}</td> 
+                            <td>{{ d.patient.profile.gender }}</td>
                             <td>{{ d.disease }}</td>
                             {% if d.medicine == "" %}
                             <td>Yet Recommended</td>
                             {% else %}
                             <td>{{ d.medicine }}</td>
-                            {% endif %}
+                            {% endif %} 
+                            
+                            <!-- Added button for alternative drugs -->
+                            <td>
+                                {% if d.medicine != "" %}
+                                <a href="https://medicine-recommendation-system.streamlit.app/"
+                                    class="btn btn-primary btn-sm" target="_blank">Find Alternative Drug</a>
+                                {% endif %}
+                            </td> 
+
                             <td>
                                 <input class="btn btn-success btn-sm btn_ment" type="button" data-sid="{{d.id}}" value="Request">
                             </td>
