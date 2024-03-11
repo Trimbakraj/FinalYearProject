@@ -26,7 +26,9 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">Name</th> 
+                             <th scope="col">Age</th>
+                             <th scope="col">Gender</th>
                             <th scope="col">Disease</th>
                             <th scope="col">Medicine</th>
                             <th scope="col">Action</th>
@@ -40,7 +42,9 @@
                         {% for d in disease %}
                         <tr>
                             <td>{{ d.id }}</td>
-                            <td>{{ d.patient.username }}</td>
+                            <td>{{ d.patient.username }}</td> 
+                            <td>{{ d.patient.profile.get_age }}</td> 
+                            <td>{{ d.patient.profile.gender }}</td>
                             <td>{{ d.disease }}</td>
                             {% if d.medicine == "" %}
                             <td>Yet Recommended</td>

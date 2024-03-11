@@ -27,7 +27,6 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Patient</th>
-                            <th scope="col">Status</th>
                             <th scope="col">Day</th>
                             <th scope="col">Time</th>
                             <th scope="col">Doctor</th>
@@ -47,11 +46,7 @@
                             <td>{{ d.patient.username }}</td>
 
 
-                            {% if d.approved == False %}
-                            <td>Pending</td>
-                            {% else %}
-                            <td>{{ d.medicine }}</td>
-                            {% endif %}
+                            
 
 
                             {% if d.ment_day == None %}
